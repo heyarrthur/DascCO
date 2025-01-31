@@ -47,7 +47,7 @@ function saveName() {
 const carouselCards = [
     { icon: "fas fa-bolt", title: "Versão 0.0.1.2", desc: "Novas funções e design implementados, saiba mais acessando nosso artigo.", link: "../blog/att01.html" },
     { icon: "fas fa-code", title: "Desenvolvimento Versão 0.0.1.3", desc: "Está sendo desenvolvido a nova atualização, onde irá conter chatGPT para te ajudar em suas funções diárias.", link: "../blog/att02.html" },
-    { icon: "fas fa-cloud", title: "Armazenamento no LocalStorage", desc: "Integração com a API.", link: "../blog/att03.html" },
+    { icon: "fas fa-cloud", title: "Armazenamento no LocalStorage", desc: "Maior segurança para seu dashCO.", link: "../blog/att03.html" },
     { icon: "fas fa-chart-line", title: "Meta de Usuários", desc: "É com muito orgulho e alegria que gostaria de comunicar que nossa plataforma já possui mais de 20 membros que a utilizam em seu dia dia!.", link: "../blog/att04.html" }    
 ];
 
