@@ -47,7 +47,7 @@ function saveName() {
 const carouselCards = [
     { icon: "fas fa-bolt", title: "Versão 0.0.1.2", desc: "Novas funções e design implementados, saiba mais acessando nosso artigo.", link: "../blog/att01.html" },
     { icon: "fas fa-code", title: "Desenvolvimento Versão 0.0.1.3", desc: "Está sendo desenvolvido a nova atualização, onde irá conter chatGPT para te ajudar em suas funções diárias.", link: "../blog/att02.html" },
-    { icon: "fas fa-cloud", title: "Armazenamento no LocalStorage", desc: "Maior segurança para seu dashCO.", link: "../blog/att03.html" },
+    { icon: "fas fa-cloud", title: "Armazenamento no LocalStorage", desc: "Integração com a API.", link: "../blog/att03.html" },
     { icon: "fas fa-chart-line", title: "Meta de Usuários", desc: "É com muito orgulho e alegria que gostaria de comunicar que nossa plataforma já possui mais de 20 membros que a utilizam em seu dia dia!.", link: "../blog/att04.html" }    
 ];
 
@@ -638,3 +638,55 @@ function deleteChat(id) {
 
 // CARREGAR CHATS SALVOS AO INICIAR
 document.addEventListener("DOMContentLoaded", renderAIChats);
+
+
+
+
+// SELECIONAR ELEMENTOS DO CHAT
+const chatMessages = document.getElementById("chatMessages");
+const userInput = document.getElementById("userInput");
+const sendBtn = document.getElementById("sendBtn");
+
+// ENVIAR MENSAGEM PARA A IA
+async function sendMessage() {
+    const userMessage = userInput.value.trim();
+    if (!userMessage) return;
+
+    // Adiciona mensagem do usuário na interface
+    chatMessages.innerHTML += `<div class="user-message">${userMessage}</div>`;
+
+    // Limpa input
+    userInput.value = "";
+
+    try {
+        const response = await fetch("http://localhost:3000/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userMessage })
+        });
+
+        const data = await response.json();
+
+        if (data.botReply) {
+            // Exibir resposta do ChatGPT
+            chatMessages.innerHTML += `<div class="bot-message">${data.botReply}</div>`;
+        } else {
+            chatMessages.innerHTML += `<div class="bot-message">Erro ao obter resposta da IA.</div>`;
+        }
+
+        // Scroll para última mensagem
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    } catch (error) {
+        console.error("Erro ao enviar mensagem:", error);
+        chatMessages.innerHTML += `<div class="bot-message">Erro de conexão com a API.</div>`;
+    }
+}
+
+// EVENTO DE CLIQUE NO BOTÃO
+sendBtn.addEventListener("click", sendMessage);
+
+// ENVIAR MENSAGEM AO PRESSIONAR ENTER
+userInput.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") sendMessage();
+});
+
