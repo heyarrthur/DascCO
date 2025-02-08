@@ -11,6 +11,11 @@ const PORT = process.env.PORT || 10000;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const ASSISTANT_ID = process.env.ASSISTANT_ID;
 
+// Rota raiz ("/") para evitar o erro "Cannot GET /"
+app.get("/", (req, res) => {
+    res.send("Bem-vindo à API ChatGPT!");
+});
+
 app.post("/chat", async (req, res) => {
     const { userMessage } = req.body;
 
@@ -22,7 +27,7 @@ app.post("/chat", async (req, res) => {
         const response = await axios.post(
             "https://api.openai.com/v1/chat/completions",
             {
-                model: "gpt-4", // Confirme que está usando um modelo válido
+                model: "gpt-4",
                 messages: [{ role: "user", content: userMessage }],
                 max_tokens: 150
             },
