@@ -31,7 +31,8 @@
             <hr>
             <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="index.html"><i class="fas fa-layer-group"></i> Plataformas</a></li>
-            <li><a href="../chatgpt-backend/index.html"><i class="fa-brands fa-rocketchat"></i> ChatGPT | DashCO</a></li>
+            <li><a href="../chatgpt-backend/index.html"><i class="fa-brands fa-rocketchat"></i> ChatGPT | DashCO</a>
+            </li>
             <li><a href="#"><i class="fas fa-hourglass"></i> Em Breve</a></li>
             <li><a href="#"><i class="fas fa-hourglass"></i> Em Breve</a></li>
         </ul>
@@ -55,7 +56,7 @@
     <div class="content">
         <!-- Carrossel -->
         <div class="carousel"></div>
-        
+
 
         <!-- Botão Nova Plataforma -->
         <button class="new-platform-btn" onclick="openPlatformModal()">
@@ -92,9 +93,9 @@
                 <textarea id="taskDescription" placeholder="Descrição"></textarea>
                 <input type="date" id="taskDueDate">
                 <select id="taskCategory">
-                    <option value="tasy">Tasy</option>
-                    <option value="planilhas">Planilhas</option>
-                    <option value="intra">Intra</option>
+                    <option value="tasy">Faculdade</option>
+                    <option value="planilhas">Trabalho</option>
+                    <option value="intra">Pessoal</option>
                     <option value="outros">Outros</option>
                 </select>
                 <button onclick="saveTask()">Salvar</button>
@@ -204,33 +205,16 @@
     </div>
 
     <!-- BOTÃO PARA ABRIR A IA -->
-    <div class="ai-button" onclick="openAIContainer()">
+    <div class="ai-button" onclick="redirectToAIPage()">
         <i class="fa-brands fa-rocketchat"></i>
     </div>
 
-    <!-- CONTAINER DA IA -->
-    <div id="aiContainer" class="ai-container">
-        <span class="close" onclick="closeAIContainer()">&times;</span>
-        <h2>Chats com IA</h2>
+    <script>
+        function redirectToAIPage() {
+            window.open("../chatgpt-backend/index.html"); // Abre a página em nova aba
+        }
+    </script>
 
-        <!-- LISTA DE CHATS -->
-        <div id="aiChatList" class="ai-chat-list"></div>
-
-        <!-- BOTÃO PARA CRIAR NOVO CHAT -->
-        <button class="create-ai-chat-btn" onclick="openAIChatModal()">
-            <i class="fas fa-plus"></i> Criar Chat com IA
-        </button>
-    </div>
-
-    <!-- MODAL PARA NOMEAR O CHAT -->
-    <div id="aiChatModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeAIChatModal()">&times;</span>
-            <h2>Novo Chat com IA</h2>
-            <input type="text" id="aiChatName" placeholder="Nome do Chat">
-            <button onclick="saveAIChat()">Criar Chat</button>
-        </div>
-    </div>
 
 
     <script src="dashboard.js"></script>

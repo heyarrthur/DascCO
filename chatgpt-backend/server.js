@@ -7,6 +7,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+const PORT = process.env.PORT || 3000;
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const ASSISTANT_ID = process.env.ASSISTANT_ID;
+
 app.post("/chat", async (req, res) => {
     const { userMessage } = req.body;
 
@@ -44,5 +48,4 @@ app.post("/chat", async (req, res) => {
     }
 });
 
-const PORT = 3000;
 app.listen(PORT, () => console.log(`🚀 Servidor rodando na porta ${PORT}`));
