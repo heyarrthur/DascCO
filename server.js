@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 app.use(express.json());
@@ -9,11 +10,11 @@ app.use(cors());
 
 const PORT = process.env.PORT || 10000;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-const ASSISTANT_ID = process.env.ASSISTANT_ID;
+const ASSISTANT_ID = process.env.ASSISTENT_ID;
 
-// Rota raiz ("/") para evitar o erro "Cannot GET /"
+// Rota raiz redirecionando para index.html na raiz do projeto
 app.get("/", (req, res) => {
-    res.send("Bem-vindo à API ChatGPT!");
+    res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.post("/chat", async (req, res) => {
@@ -41,7 +42,6 @@ app.post("/chat", async (req, res) => {
 
         console.log("Resposta da API:", response.data);
 
-        // Se a API retornou uma resposta válida
         if (response.data.choices && response.data.choices.length > 0) {
             res.json({ botReply: response.data.choices[0].message.content });
         } else {
