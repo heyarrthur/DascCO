@@ -10,9 +10,12 @@ app.use(cors());
 
 const PORT = process.env.PORT || 10000;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-const ASSISTANT_ID = process.env.ASSISTENT_ID;
+const ASSISTENT_ID = process.env.ASSISTENT_ID;
 
-// Rota raiz redirecionando para index.html na raiz do projeto
+// Configurar o Express para servir arquivos estáticos do diretório raiz
+app.use(express.static(__dirname));
+
+// Rota raiz redirecionando para index.html
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
