@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - DashCo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="profile-section">
+            <label for="profilePic" class="profile-pic">
+                <input type="file" id="profilePic" accept="image/*" hidden>
+                <img id="profileImage" src="default-avatar.png" alt="Foto de Perfil">
+            </label>
+            <div class="profile-info">
+                <span id="username">Nome Sobrenome</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <ul class="menu">
+            <li><a href="https://www.instagram.com/hey.arrthur/">by Arthur Marques Ferreira</a></li>
+            <hr>
+            <li><a href="../dash/index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="../dash/index.html"><i class="fas fa-layer-group"></i> Plataformas</a></li>
+            <li><a href="#"><i class="fas fa-calendar-alt"></i> Agenda</a></li>
+            <li><a href="#"><i class="fas fa-book"></i> Planilhas</a></li>
+            <li><a href="#"><i class="fas fa-hourglass-half"></i> Em Breve</a></li>
+        </ul>
+
+        <hr>
+
+        <button class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
+
+    <!-- CONTEÚDO PRINCIPAL DO BLOG -->
+    <div class="blog-container">
+        <h1>Atualizações DashCO</h1>
+
+        <!-- POSTAGEM DO BLOG -->
+        <div class="blog-post">
+            <h2 class="post-title">Atualização Versão 0.0.1.2</h2>
+            <p class="post-description">
+                Neste artigo, exploraremos os detalhes da nossa atualização e seus novos sistemas.
+            </p>
+            <p class="post-meta">
+                <strong>Feita por:</strong> Arthur Marques Ferreira | <strong>Desenvolvido por:</strong> Arthur Marques
+                Ferreira
+            </p>
+
+            <hr class="divider">
+
+            <h2>Novidades dessa atualização</h2>
+            <p>
+                Nesta atualização, implementamos diversas funcionalidades, incluindo um bloco de notas, uma calculadora
+                e um sistema de tarefas. Esses recursos foram integrados à página principal para otimizar seu tempo e
+                aprimorar a experiência na plataforma. Além disso, todas as ferramentas são totalmente personalizáveis.
+                Para mais detalhes, confira nosso artigo abaixo.
+            </p>
+
+            <h2>Sobre o Bloco de Notas</h2>
+            <p>
+                A função Bloco de Notas foi adicionada para facilitar a anotação de informações importantes, evitando o
+                risco de perdê-las, como acontece com papéis soltos sobre a mesa. Com um design simples, moderno e
+                intuitivo, essa ferramenta contribui para a organização do seu ambiente de trabalho ou estudos.
+
+                Além disso, o bloco de notas conta com um sistema de lixeira. No momento, itens excluídos não podem ser
+                recuperados, mas essa funcionalidade poderá ser aprimorada em futuras atualizações.
+            </p>
+
+            <h2>Sobre a Calculadora</h2>
+            <p>
+                A nossa calculadora foi desenvolvida para reduzir a quantidade de janelas abertas no seu computador,
+                ajudando a otimizar o desempenho do sistema. Com um design simples e compacto, ela permite realizar
+                cálculos rapidamente, sem a necessidade de alternar entre abas ou perder o foco em suas tarefas.
+            </p>
+            <h2>Sobre as Tarefas</h2>
+            <p>
+                Por fim, apresentamos o nosso sistema de tarefas, desenvolvido para ajudar na organização da sua rotina.
+                Com ele, você pode adicionar tarefas e acompanhar suas atividades diárias, semanais ou mensais,
+                facilitando seu planejamento e produtividade.
+
+                Atualmente, é possível adicionar até 15 tarefas por vez, e o sistema conta com um indicador no canto
+                superior direito para exibir quais tarefas já foram concluídas. Futuramente, novas atualizações serão
+                lançadas para aprimorar ainda mais sua experiência e eficiência.
+            </p>
+        </div>
+
+    </div>
+
+    <script src="blog.js"></script>
+</body>
+
+</html>

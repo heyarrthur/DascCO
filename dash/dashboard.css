@@ -1,0 +1,1005 @@
+/* Reset e Configuração Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background: #f4f7fc;
+}
+
+/* NAVBAR */
+.navbar {
+    width: 260px;
+    height: 1000px;
+    background: #fff;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-section {
+    text-align: center;
+}
+
+.profile-pic img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid #007bff;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.profile-info span {
+    font-weight: bold;
+}
+
+.edit-icon {
+    margin-left: 8px;
+    cursor: pointer;
+    color: #007bff;
+}
+
+hr {
+    margin: 15px 0;
+    border: none;
+    height: 1px;
+    background: #ddd;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    padding: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.menu li:hover {
+    background: #f1f1f1;
+    border-radius: 6px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.menu li i {
+    margin-right: 12px;
+    font-size: 18px;
+}
+
+.logout-btn {
+    margin-top: auto;
+    padding: 12px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.logout-btn:hover {
+    background: #d63c3c;
+}
+
+/* CONTEÚDO */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* CARROSSEL */
+.carousel {
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.carousel-card {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.card-icon {
+    margin-right: 7px;
+    width: 45px;
+    height: 45px;
+    background: #007bff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.card-arrow {
+    margin-left: auto;
+    background: #ddd;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card-arrow:hover {
+    background: #007bff;
+    color: white;
+}
+
+/* BOTÃO NOVA PLATAFORMA */
+.new-platform-btn {
+    background: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.new-platform-btn:hover {
+    background: #0056b3;
+}
+
+/* MODAIS */
+.modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 320px;
+    animation: slideIn 0.3s ease-in-out;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.close:hover {
+    color: #007bff;
+}
+
+/* ESTILIZAÇÃO DOS INPUTS DO MODAL */
+.modal-content input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    margin-bottom: 12px;
+    background: #f9f9f9;
+}
+
+.modal-content input:focus {
+    border-color: #007bff;
+    background: white;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* CONTAINER PRINCIPAL DAS PLATAFORMAS */
+.platform-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Máximo de 4 por linha */
+    gap: 16px;
+    max-height: 500px; /* Altura padrão */
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+/* CARD DA PLATAFORMA */
+.platform-card {
+    background: white;
+    display: flex;
+    align-items: center;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    padding: -10px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.platform-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ÍCONE DA PLATAFORMA */
+.platform-icon {
+    width: 50px;
+    height: 50px;
+    background: #007bff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 22px;
+    margin-right: 12px;
+}
+
+/* CONTEÚDO DA PLATAFORMA */
+.platform-content {
+    flex: 1;
+}
+
+.platform-content h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.platform-content p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* AÇÕES DO CARD (BOTÕES) */
+.platform-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.open-link, .delete-btn {
+    background: #ddd;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.open-link:hover {
+    background: #007bff;
+    color: white;
+}
+
+.delete-btn:hover {
+    background: #ff4d4d;
+    color: white;
+}
+
+/* CONTAINER PRINCIPAL DAS PLATAFORMAS */
+.platform-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Máximo de 4 por linha */
+    gap: 16px;
+    max-height: 750px; /* Altura padrão para 3 linhas (4 plataformas por linha, totalizando 12) */
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    margin-bottom: 24px; /* Espaço maior entre o container e o botão */
+}
+
+/* CARD DA PLATAFORMA */
+.platform-card {
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.platform-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ÍCONE DA PLATAFORMA */
+.platform-icon {
+    width: 50px;
+    height: 50px;
+    background: #007bff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 22px;
+    margin-right: 12px;
+}
+
+/* CONTEÚDO DA PLATAFORMA */
+.platform-content {
+    flex: 1;
+}
+
+.platform-content h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.platform-content p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* AÇÕES DO CARD (BOTÕES) */
+.platform-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.open-link, .delete-btn {
+    background: #ddd;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.open-link:hover {
+    background: #007bff;
+    color: white;
+}
+
+.delete-btn:hover {
+    background: #ff4d4d;
+    color: white;
+}
+
+/* BOTÃO EXPANDIR PLATAFORMAS */
+.expand-btn {
+    display: none; /* Invisível até ter mais de 12 cards */
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px; /* Espaço maior entre os cards e o botão */
+    background: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.expand-btn:hover {
+    background: #0056b3;
+}
+
+/* BOTÃO DE BLOCO DE NOTAS (CANTO INFERIOR DIREITO) */
+.notes-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: #007bff;
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.notes-button:hover {
+    background: #0056b3;
+}
+
+/* CONTAINER DO BLOCO DE NOTAS */
+.notes-container {
+    position: fixed;
+    top: 0;
+    right: -35%;
+    width: 35%;
+    height: 100%;
+    background: white;
+    box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+}
+
+.notes-container.active {
+    right: 0;
+    opacity: 1;
+}
+
+/* HEADER DO BLOCO DE NOTAS */
+.notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notes-header h2 {
+    font-size: 20px;
+    color: #333;
+}
+
+/* BOTÃO FECHAR CONTAINER */
+.close-notes {
+    font-size: 22px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #ff4d4d;
+}
+
+.close-notes:hover {
+    color: #d63c3c;
+}
+
+/* LISTA DE NOTAS */
+.notes-list {
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 15px;
+}
+
+/* CARD DE NOTA */
+.note-card {
+    background: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.note-card h3 {
+    font-size: 16px;
+    color: #333;
+}
+
+.note-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* BOTÕES DENTRO DO CARD */
+.note-actions button {
+    border: none;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.open-note {
+    background: #007bff;
+    color: white;
+}
+
+.open-note:hover {
+    background: #0056b3;
+}
+
+.delete-note {
+    background: #ff4d4d;
+    color: white;
+}
+
+.delete-note:hover {
+    background: #d63c3c;
+}
+
+/* BOTÃO PARA CRIAR NOVO BLOCO */
+.new-note-btn {
+    background: #007bff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.new-note-btn:hover {
+    background: #0056b3;
+}
+
+/* MODAL PARA CRIAR NOVO BLOCO */
+.modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.note-modal {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 2px solid #ddd;
+}
+
+.modal-content button {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-content button:hover {
+    background: #0056b3;
+}
+
+/* EDITOR DE NOTAS */
+.note-editor-container {
+    position: fixed;
+    top: 0;
+    right: -35%;
+    width: 35%;
+    height: 100%;
+    background: white;
+    box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.note-editor-container.active {
+    right: 0;
+    opacity: 1;
+}
+
+.note-editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.note-editor-container textarea {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 2px solid #ddd;
+    resize: none;
+}
+
+.save-note-content {
+    background: #007bff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.save-note-content:hover {
+    background: #0056b3;
+}
+
+/* BOTÃO DA CALCULADORA (ACIMA DO BLOCO DE NOTAS) */
+.calculator-button {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: #28a745;
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.calculator-button:hover {
+    background: #218838;
+}
+
+/* CONTAINER DA CALCULADORA */
+.calculator-container {
+    position: fixed;
+    top: 0;
+    right: -35%;
+    width: 35%;
+    height: 100%;
+    background: white;
+    box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+}
+
+.calculator-container.active {
+    right: 0;
+    opacity: 1;
+}
+
+/* HEADER DA CALCULADORA */
+.calculator-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calculator-header h2 {
+    font-size: 20px;
+    color: #333;
+}
+
+.close-calculator {
+    font-size: 22px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #ff4d4d;
+}
+
+.close-calculator:hover {
+    color: #d63c3c;
+}
+
+/* TELA DA CALCULADORA */
+.calculator-screen {
+    width: 100%;
+    background: #f9f9f9;
+    padding: 15px;
+    text-align: right;
+    font-size: 24px;
+    border-radius: 8px;
+    box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.calculator-screen input {
+    width: 100%;
+    border: none;
+    background: none;
+    font-size: 24px;
+    text-align: right;
+    outline: none;
+}
+
+/* BOTÕES DA CALCULADORA */
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.calculator-buttons button {
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    background: #f1f1f1;
+}
+
+.calculator-buttons button:hover {
+    background: #ddd;
+}
+
+.operator-btn {
+    grid-column: span 2;
+    background: #007bff;
+    color: white;
+}
+
+.operator-btn:hover {
+    background: #0056b3;
+}
+
+/* CONTAINER DE TAREFAS */
+.tasks-container {
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* HEADER DAS TAREFAS */
+.tasks-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* BOTÕES DO HEADER */
+.add-task-btn,
+.view-completed-btn {
+    background: #007bff;
+    color: white;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.add-task-btn i,
+.view-completed-btn i {
+    margin-right: 6px;
+}
+
+.add-task-btn:hover {
+    background: #0056b3;
+}
+
+.view-completed-btn {
+    background: #28a745;
+}
+
+.view-completed-btn:hover {
+    background: #1e7e34;
+}
+
+/* LISTA DE TAREFAS */
+.task-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+/* ESTILO DOS CARDS */
+.task-card {
+    margin-top: 10px;
+    background: white;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* CORES POR CATEGORIA */
+.task-card.tasy { border-left: 5px solid blue; }
+.task-card.planilhas { border-left: 5px solid green; }
+.task-card.intra { border-left: 5px solid green; }
+.task-card.outros { border-left: 5px solid pink; }
+
+/* TÍTULO */
+.task-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
+    text-align: center;
+}
+
+/* DESCRIÇÃO */
+.task-card p {
+    font-size: 14px;
+    color: #666;
+    margin: 2px 8px;
+}
+
+/* BOTÕES NO CARD */
+.task-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+/* BOTÕES INDIVIDUAIS */
+.task-actions button {
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+/* ESTILOS DOS BOTÕES */
+.edit-task {
+    background: #ddd;
+}
+
+.edit-task:hover {
+    background: #007bff;
+    color: white;
+}
+
+.complete-task {
+    background: #28a745;
+    color: white;
+    width: 100px;
+}
+
+.complete-task:hover {
+    background: #1e7e34;
+}
+
+.delete-task {
+    background: #ff4d4d;
+    color: white;
+}
+
+.delete-task:hover {
+    background: #d63c3c;
+}
+
+/* INPUT DE DESCRIÇÃO */
+#taskDescription {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    resize: vertical; /* Permite redimensionar verticalmente */
+    height: 100px; /* Altura padrão */
+    background: #f9f9f9;
+    transition: 0.3s;
+}
+
+#taskDescription:focus {
+    border-color: #007bff;
+    background: #fff;
+}
+
+/* INPUT DE CATEGORIAS (SELECT) */
+#taskCategory {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 10px;
+}
+
+/* COR DE FUNDO PARA CADA OPÇÃO DO SELECT */
+#taskCategory option[value="tasy"] {
+    background-color: #007bff; /* Azul */
+    color: white;
+}
+
+#taskCategory option[value="planilhas"] {
+    background-color: #28a745; /* Verde */
+    color: white;
+}
+
+#taskCategory option[value="intra"] {
+    background-color: #28a745; /* Verde */
+    color: white;
+}
+
+#taskCategory option[value="outros"] {
+    background-color: #ffc0cb; /* Rosa */
+    color: white;
+}
+
+/* BOTÃO DA IA - CHATGPT */
+.ai-button {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    margin-bottom: 20px;
+    bottom: 120px;
+    right: 20px;
+    width: 50px; /* Tamanho ligeiramente reduzido */
+    height: 50px; 
+    background: #7d7d7d;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 22px; /* Reduzindo o tamanho do ícone */
+    color: white;
+}
+
+.ai-button i {
+    font-size: 18px; /* Ícone menor */
+}
+
+.ai-button:hover {
+    background: #535353;
+}
