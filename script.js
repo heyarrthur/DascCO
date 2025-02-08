@@ -122,7 +122,7 @@ async function sendMessage() {
     userInput.value = "";
 
     try {
-        const response = await fetch("http://localhost:3000/chat", {
+        const response = await fetch("http://localhost:10000/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ userMessage })
